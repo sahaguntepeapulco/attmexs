@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATT | Agencia de Transporte Terrestre</title>
+  <meta name="description" content="Empresa líder en transporte terrestre de mercancías en toda la República Mexicana. Logística integral, rastreo en tiempo real y cobertura nacional."/>
+  <meta name="keywords" content="transporte mercancías México, logística terrestre, envíos república mexicana, flete terrestre, traslado de carga"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --blue-dark:    #0a1628;
+      --blue-mid:     #0d2244;
+      --blue-main:    #1a3a6b;
+      --blue-bright:  #1e5fc2;
+      --orange:       #f26b1d;
+      --orange-light: #ff8c42;
+      --white:        #ffffff;
+      --gray-light:   #f4f6fa;
+      --gray-mid:     #e0e6ef;
+      --gray-text:    #6b7a99;
+      --text-dark:    #1a2340;
+      --nav-height:   72px;
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Barlow', sans-serif; color: var(--text-dark); background: var(--white); overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ===== NAVBAR ===== */
+    #navbar {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+      height: var(--nav-height);
+      background: rgba(10,22,40,0.97);
+      backdrop-filter: blur(10px);
+      display: flex; align-items: center;
+      border-bottom: 2px solid var(--orange);
+      transition: box-shadow .3s;
+    }
+    #navbar.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,.5); }
+    .nav-inner {
+      width: 100%; max-width: 1280px; margin: auto;
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo-wrap { display: flex; align-items: center; gap: .75rem; }
+    .logo-icon {
+      width: 46px; height: 46px; background: var(--orange);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; color: var(--white);
+    }
+    .logo-text { line-height: 1; }
+    .logo-text .brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.5rem; color: var(--white); letter-spacing: .5px; }
+    .logo-text .tagline { font-size: .65rem; color: var(--orange); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { color: var(--gray-mid); font-weight: 500; font-size: .95rem; letter-spacing: .5px; transition: color .2s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--orange); transition: width .25s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-cta {
+      background: var(--orange); color: var(--white); font-weight: 700;
+      padding: .5rem 1.3rem; border-radius: 6px; font-size: .9rem;
+      transition: background .2s, transform .15s;
+    }
+    .nav-cta:hover { background: var(--orange-light); transform: translateY(-1px); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 26px; height: 2px; background: var(--white); transition: all .3s; border-radius: 2px; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+    /* ===== HERO ===== */
+    #inicio {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-mid) 50%, #0a1e3c 100%);
+      position: relative; overflow: hidden;
+      display: flex; align-items: center;
+      padding-top: var(--nav-height);
+    }
+    .hero-bg-pattern {
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 50%, rgba(30,95,194,.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(242,107,29,.12) 0%, transparent 40%),
+        repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,255,255,.02) 60px, rgba(255,255,255,.02) 61px),
+        repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,.02) 60px, rgba(255,255,255,.02) 61px);
+    }
+    .hero-road {
+      position: absolute; bottom: 0; left: 0; width: 100%; height: 180px;
+      background: linear-gradient(to top, rgba(0,0,0,.6), transparent);
+    }
+    .hero-road::before {
+      content: ''; position: absolute; bottom: 30px; left: 0; right: 0; height: 4px;
+      background: repeating-linear-gradient(90deg, var(--orange) 0, var(--orange) 40px, transparent 40px, transparent 80px);
+      opacity: .4;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 1280px; margin: auto; padding: 0 2rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    }
+    .hero-text {}
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(242,107,29,.15); border: 1px solid rgba(242,107,29,.4);
+      color: var(--orange-light); padding: .35rem .9rem; border-radius: 50px;
+      font-size: .8rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero-h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 900; line-height: 1.0;
+      color: var(--white);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero-h1 span { color: var(--orange); display: block; }
+    .hero-desc { color: #a8bbd4; font-size: 1.1rem; line-height: 1.8; margin-bottom: 2.5rem; max-width: 480px; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--orange); color: var(--white);
+      padding: .9rem 2rem; border-radius: 8px; font-weight: 700; font-size: 1rem;
+      display: inline-flex; align-items: center; gap: .6rem;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(242,107,29,.4);
+    }
+    .btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(242,107,29,.5); }
+    .btn-secondary {
+      background: rgba(255,255,255,.08); color: var(--white);
+      border: 1px solid rgba(255,255,255,.25);
+      padding: .9rem 2rem; border-radius: 8px; font-weight: 600; font-size: 1rem;
+      display: inline-flex; align-items: center; gap: .6rem;
+      transition: background .2s, transform .15s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,.15); transform: translateY(-2px); }
+    .hero-stats {
+      display: flex; gap: 2rem; margin-top: 3rem; padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,.1);
+    }
+    .stat-item .num { font-family: 'Barlow Condensed', sans-serif; font-size: 2.2rem; font-weight: 800; color: var(--orange); }
+    .stat-item .lbl { font-size: .8rem; color: #a8bbd4; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+    .hero-visual {
+      display: flex; flex-direction: column; gap: 1rem;
+      animation: floatIn 1s ease-out .3s both;
+    }
+    @keyframes floatIn { from { opacity:0; transform: translateX(40px); } to { opacity:1; transform: translateX(0); } }
+    .truck-card {
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+      border-radius: 16px; padding: 1.5rem;
+      backdrop-filter: blur(10px);
+    }
+    .truck-icon-big { font-size: 5rem; color: var(--orange); margin-bottom: .5rem; }
+    .truck-card h3 { color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-size: 1.4rem; font-weight: 800; text-transform: uppercase; }
+    .truck-card p { color: #a8bbd4; font-size: .9rem; margin-top: .3rem; }
+    .route-card {
+      background: rgba(30,95,194,.15); border: 1px solid rgba(30,95,194,.3);
+      border-radius: 12px; padding: 1rem 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .route-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--orange); flex-shrink: 0; }
+    .route-line { flex: 1; height: 2px; background: repeating-linear-gradient(90deg, var(--orange) 0, var(--orange) 6px, transparent 6px, transparent 12px); }
+    .route-label { color: var(--white); font-size: .85rem; font-weight: 600; }
+
+    /* ===== SECTION BASE ===== */
+    section { padding: 100px 0; }
+    .container { max-width: 1280px; margin: auto; padding: 0 2rem; }
+    .section-tag { font-size: .75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: .75rem; }
+    .section-title { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; text-transform: uppercase; color: var(--text-dark); line-height: 1.1; margin-bottom: 1rem; }
+    .section-title span { color: var(--orange); }
+    .section-sub { color: var(--gray-text); font-size: 1.05rem; line-height: 1.8; max-width: 600px; }
+    .section-header { margin-bottom: 3.5rem; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-sub { margin: auto; }
+
+    /* ===== NOSOTROS ===== */
+    #nosotros { background: var(--gray-light); }
+    .nosotros-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .nosotros-visual { position: relative; }
+    .nosotros-img-box {
+      background: linear-gradient(135deg, var(--blue-main), var(--blue-dark));
+      border-radius: 20px; padding: 3rem; text-align: center;
+      box-shadow: 0 20px 60px rgba(10,22,40,.2);
+    }
+    .nosotros-img-box i { font-size: 8rem; color: var(--orange); opacity: .9; }
+    .nosotros-year {
+      position: absolute; bottom: -20px; right: -20px;
+      background: var(--orange); color: var(--white);
+      border-radius: 12px; padding: 1rem 1.5rem; text-align: center;
+      box-shadow: 0 10px 30px rgba(242,107,29,.4);
+    }
+    .nosotros-year .big { font-family: 'Barlow Condensed', sans-serif; font-size: 2.5rem; font-weight: 900; display: block; line-height: 1; }
+    .nosotros-year small { font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; opacity: .9; }
+    .nosotros-text p { color: var(--gray-text); line-height: 1.9; margin-bottom: 1.5rem; }
+    .mvv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
+    .mvv-card {
+      background: var(--white); border-radius: 12px; padding: 1.25rem;
+      border-top: 3px solid var(--orange);
+      box-shadow: 0 4px 20px rgba(0,0,0,.06);
+    }
+    .mvv-card h4 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1rem; text-transform: uppercase; color: var(--blue-main); margin-bottom: .5rem; }
+    .mvv-card p { font-size: .82rem; color: var(--gray-text); line-height: 1.6; }
+
+    /* ===== SERVICIOS ===== */
+    #servicios { background: var(--white); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .service-card {
+      background: var(--gray-light); border-radius: 16px; padding: 2rem;
+      border: 1px solid var(--gray-mid);
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+      position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--blue-bright), var(--orange));
+      transform: scaleX(0); transform-origin: left; transition: transform .3s;
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 16px 50px rgba(0,0,0,.1); border-color: transparent; }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 60px; height: 60px; border-radius: 14px;
+      background: linear-gradient(135deg, var(--blue-main), var(--blue-bright));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; color: var(--white); margin-bottom: 1.25rem;
+    }
+    .service-card h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.3rem; text-transform: uppercase; margin-bottom: .6rem; color: var(--text-dark); }
+    .service-card p { font-size: .9rem; color: var(--gray-text); line-height: 1.7; margin-bottom: 1rem; }
+    .service-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .service-tag { background: var(--white); border: 1px solid var(--gray-mid); color: var(--blue-main); font-size: .72rem; font-weight: 600; padding: .2rem .6rem; border-radius: 50px; }
+
+    /* ===== COTIZADOR ===== */
+    #cotizar {
+      background: linear-gradient(135deg, var(--blue-dark), var(--blue-mid));
+      padding: 80px 0;
+    }
+    .cotizar-wrap { display: grid; grid-template-columns: 1fr 1.3fr; gap: 4rem; align-items: center; }
+    .cotizar-info .section-title { color: var(--white); }
+    .cotizar-info .section-sub { color: #a8bbd4; }
+    .cotizar-features { margin-top: 2rem; display: flex; flex-direction: column; gap: .8rem; }
+    .feat-item { display: flex; align-items: center; gap: .75rem; color: #a8bbd4; font-size: .9rem; }
+    .feat-item i { color: var(--orange); font-size: 1rem; }
+    .cotizar-form {
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+      border-radius: 20px; padding: 2.5rem; backdrop-filter: blur(10px);
+    }
+    .cotizar-form h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.6rem; text-transform: uppercase; color: var(--white); margin-bottom: 1.5rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1rem; }
+    .form-group label { font-size: .8rem; font-weight: 600; color: #a8bbd4; text-transform: uppercase; letter-spacing: .5px; }
+    .form-group input, .form-group select, .form-group textarea {
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
+      color: var(--white); padding: .75rem 1rem; border-radius: 8px; font-family: 'Barlow', sans-serif; font-size: .95rem;
+      transition: border-color .2s, background .2s;
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,.3); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none; border-color: var(--orange); background: rgba(255,255,255,.12);
+    }
+    .form-group select option { background: var(--blue-dark); color: var(--white); }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .cotizar-form .btn-primary { width: 100%; justify-content: center; }
+    #cotizar-result {
+      display: none; margin-top: 1rem;
+      background: rgba(242,107,29,.15); border: 1px solid var(--orange);
+      border-radius: 8px; padding: 1rem; color: var(--orange-light); font-size: .9rem; text-align: center;
+    }
+
+    /* ===== RASTREO ===== */
+    #rastreo { background: var(--gray-light); padding: 80px 0; }
+    .rastreo-inner { max-width: 700px; margin: auto; text-align: center; }
+    .rastreo-inner .section-title { color: var(--text-dark); }
+    .rastreo-box {
+      background: var(--white); border-radius: 16px; padding: 2.5rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,.08);
+      margin-top: 2rem;
+    }
+    .rastreo-input-wrap { display: flex; gap: .75rem; margin-bottom: 1.5rem; }
+    .rastreo-input-wrap input {
+      flex: 1; background: var(--gray-light); border: 2px solid var(--gray-mid);
+      color: var(--text-dark); padding: .9rem 1.2rem; border-radius: 10px;
+      font-family: 'Barlow', sans-serif; font-size: 1rem; font-weight: 600;
+      transition: border-color .2s;
+    }
+    .rastreo-input-wrap input:focus { outline: none; border-color: var(--blue-bright); }
+    .rastreo-input-wrap input::placeholder { color: var(--gray-text); font-weight: 400; }
+    .rastreo-input-wrap button {
+      background: var(--blue-main); color: var(--white);
+      border: none; padding: .9rem 1.5rem; border-radius: 10px;
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; text-transform: uppercase;
+      cursor: pointer; transition: background .2s; display: flex; align-items: center; gap: .5rem;
+    }
+    .rastreo-input-wrap button:hover { background: var(--blue-bright); }
+    #rastreo-result { display: none; }
+    .track-steps { display: flex; flex-direction: column; gap: 1rem; text-align: left; margin-top: 1rem; }
+    .track-step { display: flex; gap: 1rem; align-items: flex-start; }
+    .step-dot-wrap { display: flex; flex-direction: column; align-items: center; }
+    .step-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--gray-mid); flex-shrink: 0; }
+    .step-dot.done { background: var(--blue-bright); }
+    .step-dot.active { background: var(--orange); box-shadow: 0 0 0 4px rgba(242,107,29,.2); }
+    .step-line { width: 2px; height: 30px; background: var(--gray-mid); margin-top: 3px; }
+    .step-line.done { background: var(--blue-bright); }
+    .step-info h4 { font-size: .9rem; font-weight: 700; color: var(--text-dark); }
+    .step-info p { font-size: .8rem; color: var(--gray-text); margin-top: .1rem; }
+
+    /* ===== CLIENTES ===== */
+    #clientes { background: var(--white); }
+    .testimonios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+    .testimonio-card {
+      background: var(--gray-light); border-radius: 16px; padding: 2rem;
+      border: 1px solid var(--gray-mid); position: relative;
+    }
+    .testimonio-card::before { content: '"'; font-family: Georgia, serif; font-size: 6rem; color: var(--orange); opacity: .15; position: absolute; top: -10px; left: 15px; line-height: 1; }
+    .stars { color: var(--orange); font-size: .85rem; margin-bottom: 1rem; }
+    .testimonio-card blockquote { font-size: .95rem; color: var(--gray-text); line-height: 1.8; margin-bottom: 1.25rem; font-style: italic; }
+    .testimonio-author { display: flex; align-items: center; gap: .75rem; }
+    .author-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue-main), var(--blue-bright));
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white); font-weight: 700; font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem;
+    }
+    .author-info .name { font-weight: 700; font-size: .9rem; color: var(--text-dark); }
+    .author-info .company { font-size: .8rem; color: var(--gray-text); }
+    .logos-title { text-align: center; font-size: .8rem; font-weight: 600; color: var(--gray-text); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; }
+    .logos-grid {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;
+    }
+    .logo-client {
+      background: var(--gray-light); border: 1px solid var(--gray-mid);
+      border-radius: 10px; padding: .75rem 1.5rem;
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1rem;
+      color: var(--gray-text); letter-spacing: .5px; text-transform: uppercase;
+      transition: border-color .2s, color .2s;
+    }
+    .logo-client:hover { border-color: var(--orange); color: var(--orange); }
+
+    /* ===== MAPA ===== */
+    #cobertura { background: var(--blue-dark); padding: 80px 0; }
+    #cobertura .section-title { color: var(--white); }
+    #cobertura .section-sub { color: #a8bbd4; }
+    .mapa-wrap {
+      margin-top: 2.5rem; border-radius: 16px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,.1);
+      box-shadow: 0 20px 60px rgba(0,0,0,.3);
+    }
+    .mapa-wrap iframe { width: 100%; height: 420px; display: block; border: none; }
+
+    /* ===== CONTACTO ===== */
+    #contacto { background: var(--gray-light); }
+    .contacto-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; }
+    .contacto-info h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 1.5rem; color: var(--text-dark); }
+    .info-item { display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: flex-start; }
+    .info-icon { width: 46px; height: 46px; flex-shrink: 0; background: linear-gradient(135deg, var(--blue-main), var(--blue-bright)); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1rem; }
+    .info-text h4 { font-weight: 700; font-size: .9rem; color: var(--text-dark); margin-bottom: .2rem; }
+    .info-text p, .info-text a { font-size: .9rem; color: var(--gray-text); }
+    .info-text a:hover { color: var(--orange); }
+    .whatsapp-btn {
+      display: inline-flex; align-items: center; gap: .75rem;
+      background: #25d366; color: var(--white);
+      padding: .9rem 2rem; border-radius: 10px; font-weight: 700; font-size: 1rem;
+      margin-top: .5rem; transition: background .2s, transform .15s;
+      box-shadow: 0 6px 20px rgba(37,211,102,.3);
+    }
+    .whatsapp-btn:hover { background: #1fb855; transform: translateY(-2px); }
+    .contact-form { background: var(--white); border-radius: 20px; padding: 2.5rem; box-shadow: 0 10px 40px rgba(0,0,0,.08); }
+    .contact-form h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 1.5rem; color: var(--text-dark); }
+    .contact-form .form-group label { color: var(--gray-text); }
+    .contact-form .form-group input,
+    .contact-form .form-group textarea {
+      background: var(--gray-light); border: 2px solid var(--gray-mid);
+      color: var(--text-dark); padding: .8rem 1rem; border-radius: 8px;
+      font-family: 'Barlow', sans-serif; font-size: .95rem;
+      transition: border-color .2s;
+    }
+    .contact-form .form-group input:focus,
+    .contact-form .form-group textarea:focus { outline: none; border-color: var(--blue-bright); }
+    .contact-form .form-group input::placeholder,
+    .contact-form .form-group textarea::placeholder { color: var(--gray-text); }
+    .contact-form textarea { resize: vertical; min-height: 120px; }
+    .contact-form .btn-primary { width: 100%; justify-content: center; }
+    #contact-result {
+      display: none; margin-top: 1rem;
+      background: rgba(26,58,107,.08); border: 1px solid var(--blue-bright);
+      border-radius: 8px; padding: .9rem; color: var(--blue-main); font-size: .9rem; text-align: center;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--blue-dark);
+      border-top: 2px solid var(--orange);
+      padding: 60px 0 30px;
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 2.5rem; margin-bottom: 3rem; }
+    .footer-brand .logo-wrap { margin-bottom: 1rem; }
+    .footer-brand p { font-size: .85rem; color: #a8bbd4; line-height: 1.8; max-width: 280px; }
+    .footer-col h4 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; color: var(--white); margin-bottom: 1rem; }
+    .footer-col ul { display: flex; flex-direction: column; gap: .5rem; }
+    .footer-col ul li a { font-size: .85rem; color: #a8bbd4; transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--orange); }
+    .social-links { display: flex; gap: .75rem; margin-top: 1rem; }
+    .social-link { width: 38px; height: 38px; border-radius: 8px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); display: flex; align-items: center; justify-content: center; color: #a8bbd4; font-size: .95rem; transition: background .2s, color .2s; }
+    .social-link:hover { background: var(--orange); color: var(--white); border-color: var(--orange); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom p { font-size: .8rem; color: #6b7a99; }
+    .footer-bottom a { color: var(--orange); }
+
+    /* ===== FLOATING WHATSAPP ===== */
+    .float-wa {
+      position: fixed; bottom: 28px; right: 28px; z-index: 999;
+      width: 58px; height: 58px; border-radius: 50%; background: #25d366;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; color: var(--white);
+      box-shadow: 0 6px 25px rgba(37,211,102,.5);
+      transition: transform .2s, box-shadow .2s;
+      animation: pulse 2s infinite;
+    }
+    .float-wa:hover { transform: scale(1.1); box-shadow: 0 10px 35px rgba(37,211,102,.6); animation: none; }
+    @keyframes pulse { 0%,100% { box-shadow: 0 6px 25px rgba(37,211,102,.5); } 50% { box-shadow: 0 6px 35px rgba(37,211,102,.8); } }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .hero-content { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-visual { max-width: 500px; margin: auto; }
+      .nosotros-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .cotizar-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+      .contacto-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu {
+        display: none; position: fixed; top: var(--nav-height); left: 0; right: 0;
+        background: var(--blue-dark); padding: 1.5rem 2rem; flex-direction: column; gap: 1rem;
+        border-bottom: 2px solid var(--orange); z-index: 999;
+      }
+      .mobile-menu.open { display: flex; }
+      .mobile-menu a { color: var(--white); font-size: 1.1rem; font-weight: 600; padding: .5rem 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+      .mobile-menu .nav-cta { display: block; text-align: center; margin-top: .5rem; }
+      .hero-stats { flex-wrap: wrap; gap: 1rem; }
+      .mvv-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#inicio" class="logo-wrap">
+      <div class="logo-icon"><i class="fa-solid fa-truck-fast"></i></div>
+      <div class="logo-text">
+        <div class="brand">ATT</div>
+        <div class="tagline">Agencia de Transporte Terrestre</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#inicio" class="active">Inicio</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#clientes">Clientes</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="#cotizar" class="nav-cta"><i class="fa-solid fa-calculator"></i> Cotiza ahora</a>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#inicio">Inicio</a>
+  <a href="#nosotros">Nosotros</a>
+  <a href="#servicios">Servicios</a>
+  <a href="#clientes">Clientes</a>
+  <a href="#contacto">Contacto</a>
+  <a href="#cotizar" class="nav-cta">Cotiza ahora</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="inicio">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-road"></div>
+  <div class="hero-content container">
+    <div class="hero-text">
+      <div class="hero-badge"><i class="fa-solid fa-location-dot"></i> Cobertura en toda la República Mexicana</div>
+      <h1 class="hero-h1">Tu mercancía <span>en las mejores manos</span></h1>
+      <p class="hero-desc">Somos expertos en transporte terrestre y logística integral. Movemos tu carga de forma segura, puntual y con seguimiento en tiempo real a cualquier punto de México.</p>
+      <div class="hero-btns">
+        <a href="#cotizar" class="btn-primary"><i class="fa-solid fa-file-invoice"></i> Solicitar cotización</a>
+        <a href="#servicios" class="btn-secondary"><i class="fa-solid fa-circle-play"></i> Ver servicios</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><div class="num">15+</div><div class="lbl">Años de experiencia</div></div>
+        <div class="stat-item"><div class="num">32</div><div class="lbl">Estados cubiertos</div></div>
+        <div class="stat-item"><div class="num">500+</div><div class="lbl">Clientes satisfechos</div></div>
+        <div class="stat-item"><div class="num">98%</div><div class="lbl">Entregas a tiempo</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="truck-card">
+        <div class="truck-icon-big"><i class="fa-solid fa-truck-moving"></i></div>
+        <h3>Flota moderna y segura</h3>
+        <p>Vehículos equipados con GPS y seguimiento en tiempo real las 24/7</p>
+      </div>
+      <div class="route-card">
+        <span class="route-label">CDMX</span>
+        <div class="route-dot"></div>
+        <div class="route-line"></div>
+        <div class="route-dot"></div>
+        <span class="route-label">Guadalajara</span>
+      </div>
+      <div class="route-card">
+        <span class="route-label">Monterrey</span>
+        <div class="route-dot"></div>
+        <div class="route-line"></div>
+        <div class="route-dot"></div>
+        <span class="route-label">Cancún</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NOSOTROS ===== -->
+<section id="nosotros">
+  <div class="container">
+    <div class="nosotros-grid">
+      <div class="nosotros-visual">
+        <div class="nosotros-img-box">
+          <i class="fa-solid fa-route"></i>
+        </div>
+        <div class="nosotros-year">
+          <span class="big">2009</span>
+          <small>fundación</small>
+        </div>
+      </div>
+      <div class="nosotros-text">
+        <div class="section-tag">Quiénes somos</div>
+        <h2 class="section-title">Más de 15 años <span>moviendo México</span></h2>
+        <p>Somos una empresa mexicana fundada en 2009 con la visión de ofrecer servicios de transporte y logística de alta calidad en toda la República Mexicana. Nacimos en la Ciudad de México y hoy contamos con presencia en los 32 estados del país.</p>
+        <p>Nuestro equipo está integrado por profesionales con amplia experiencia en logística, operaciones y atención al cliente, comprometidos en brindar soluciones efectivas para el traslado de mercancías de todo tipo: desde materias primas hasta productos terminados, equipos industriales y mercancía refrigerada.</p>
+        <div class="mvv-grid">
+          <div class="mvv-card">
+            <h4><i class="fa-solid fa-bullseye"></i> Misión</h4>
+            <p>Brindar servicios de transporte y logística confiables, seguros y eficientes en toda la República Mexicana.</p>
+          </div>
+          <div class="mvv-card">
+            <h4><i class="fa-solid fa-eye"></i> Visión</h4>
+            <p>Ser la empresa de transporte de carga terrestre más confiable y reconocida de México al 2030.</p>
+          </div>
+          <div class="mvv-card">
+            <h4><i class="fa-solid fa-star"></i> Valores</h4>
+            <p>Responsabilidad, puntualidad, honestidad, seguridad e innovación en cada servicio.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICIOS ===== -->
+<section id="servicios">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-tag">Lo que hacemos</div>
+      <h2 class="section-title">Nuestros <span>servicios</span></h2>
+      <p class="section-sub">Soluciones completas de transporte y logística para empresas y personas en toda la República Mexicana.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-truck"></i></div>
+        <h3>Transporte de carga general</h3>
+        <p>Traslado de mercancías generales, paquetería, materias primas y productos terminados con cobertura en los 32 estados.</p>
+        <div class="service-tags">
+          <span class="service-tag">Carga seca</span>
+          <span class="service-tag">Paquetería</span>
+          <span class="service-tag">Carga pesada</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-snowflake"></i></div>
+        <h3>Transporte refrigerado</h3>
+        <p>Unidades equipadas con sistema de refrigeración para el traslado de alimentos, fármacos y productos perecederos.</p>
+        <div class="service-tags">
+          <span class="service-tag">Cadena de frío</span>
+          <span class="service-tag">Farmacéutico</span>
+          <span class="service-tag">Alimentos</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-diagram-project"></i></div>
+        <h3>Logística integral</h3>
+        <p>Planificación de rutas, coordinación de tiempos, documentación y gestión completa del proceso logístico de principio a fin.</p>
+        <div class="service-tags">
+          <span class="service-tag">Rutas óptimas</span>
+          <span class="service-tag">Documentación</span>
+          <span class="service-tag">Coordinación</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+        <h3>Rastreo en tiempo real</h3>
+        <p>Monitoreo GPS permanente de tu envío con actualizaciones en tiempo real y notificaciones al cliente en cada etapa.</p>
+        <div class="service-tags">
+          <span class="service-tag">GPS</span>
+          <span class="service-tag">Notificaciones</span>
+          <span class="service-tag">24/7</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-warehouse"></i></div>
+        <h3>Almacenaje y bodegaje</h3>
+        <p>Espacios seguros para el resguardo temporal o prolongado de tu mercancía con control de inventario y acceso controlado.</p>
+        <div class="service-tags">
+          <span class="service-tag">Inventario</span>
+          <span class="service-tag">Seguridad</span>
+          <span class="service-tag">CDMX y más</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-box-open"></i></div>
+        <h3>Embalaje y estiba</h3>
+        <p>Servicio profesional de embalaje, palletizado y estiba para garantizar que tu mercancía llegue en perfectas condiciones.</p>
+        <div class="service-tags">
+          <span class="service-tag">Embalaje</span>
+          <span class="service-tag">Paletizado</span>
+          <span class="service-tag">Estiba</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COTIZADOR ===== -->
+<section id="cotizar">
+  <div class="container">
+    <div class="cotizar-wrap">
+      <div class="cotizar-info">
+        <div class="section-tag">Cotización rápida</div>
+        <h2 class="section-title" style="color:var(--white)">Cotiza tu <span>envío</span> ahora</h2>
+        <p class="section-sub" style="color:#a8bbd4">Completa el formulario y recibe una estimación en minutos. Sin compromisos.</p>
+        <div class="cotizar-features">
+          <div class="feat-item"><i class="fa-solid fa-check-circle"></i> Respuesta en menos de 2 horas hábiles</div>
+          <div class="feat-item"><i class="fa-solid fa-check-circle"></i> Sin costo de cotización</div>
+          <div class="feat-item"><i class="fa-solid fa-check-circle"></i> Asesor dedicado para tu envío</div>
+          <div class="feat-item"><i class="fa-solid fa-check-circle"></i> Cobertura en los 32 estados</div>
+        </div>
+      </div>
+      <div class="cotizar-form">
+        <h3><i class="fa-solid fa-calculator"></i> Formulario de cotización</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre completo</label>
+            <input type="text" placeholder="Tu nombre" id="cot-nombre"/>
+          </div>
+          <div class="form-group">
+            <label>Teléfono</label>
+            <input type="tel" placeholder="55 0000 0000" id="cot-tel"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Ciudad origen</label>
+            <input type="text" placeholder="Ej. Ciudad de México" id="cot-origen"/>
+          </div>
+          <div class="form-group">
+            <label>Ciudad destino</label>
+            <input type="text" placeholder="Ej. Guadalajara, Jal." id="cot-destino"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Tipo de mercancía</label>
+            <select id="cot-tipo">
+              <option value="">Selecciona...</option>
+              <option>Carga general / seca</option>
+              <option>Carga refrigerada / perecederos</option>
+              <option>Materias primas</option>
+              <option>Maquinaria / equipo industrial</option>
+              <option>Productos farmacéuticos</option>
+              <option>Paquetería / mensajería</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Peso aproximado</label>
+            <select id="cot-peso">
+              <option value="">Selecciona...</option>
+              <option>Menos de 100 kg</option>
+              <option>100 – 500 kg</option>
+              <option>500 kg – 1 tonelada</option>
+              <option>1 – 5 toneladas</option>
+              <option>5 – 20 toneladas</option>
+              <option>Más de 20 toneladas</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Notas adicionales (opcional)</label>
+          <textarea placeholder="Describe tu mercancía, urgencia o cualquier detalle relevante..." id="cot-notas"></textarea>
+        </div>
+        <button class="btn-primary" onclick="enviarCotizacion()">
+          <i class="fa-solid fa-paper-plane"></i> Enviar solicitud de cotización
+        </button>
+        <div id="cotizar-result"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RASTREO ===== -->
+<section id="rastreo">
+  <div class="container">
+    <div class="rastreo-inner">
+      <div class="section-tag">Seguimiento</div>
+      <h2 class="section-title">Rastrea tu <span>envío</span></h2>
+      <p class="section-sub" style="margin:auto;margin-top:.5rem">Ingresa tu número de guía para conocer el estado actual de tu mercancía en tiempo real.</p>
+      <div class="rastreo-box">
+        <div class="rastreo-input-wrap">
+          <input type="text" id="guia-input" placeholder="Ej. TM-2024-00458" />
+          <button onclick="rastrearEnvio()"><i class="fa-solid fa-magnifying-glass"></i> Rastrear</button>
+        </div>
+        <div id="rastreo-result">
+          <div style="background:var(--gray-light);border-radius:10px;padding:1rem;margin-bottom:1rem;text-align:left">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
+              <strong style="color:var(--text-dark)" id="guia-display">TM-2024-00458</strong>
+              <span style="background:var(--orange);color:white;font-size:.75rem;font-weight:700;padding:.2rem .75rem;border-radius:50px">EN TRÁNSITO</span>
+            </div>
+            <div style="font-size:.85rem;color:var(--gray-text)">
+              <strong>Origen:</strong> Ciudad de México — <strong>Destino:</strong> Monterrey, NL
+            </div>
+          </div>
+          <div class="track-steps">
+            <div class="track-step">
+              <div class="step-dot-wrap"><div class="step-dot done"></div><div class="step-line done"></div></div>
+              <div class="step-info"><h4>Recolección completada</h4><p>12 Abr 2025 — 09:30 hrs · CDMX, Iztapalapa</p></div>
+            </div>
+            <div class="track-step">
+              <div class="step-dot-wrap"><div class="step-dot done"></div><div class="step-line done"></div></div>
+              <div class="step-info"><h4>En almacén de origen</h4><p>12 Abr 2025 — 12:00 hrs · CDMX, Bodega Central</p></div>
+            </div>
+            <div class="track-step">
+              <div class="step-dot-wrap"><div class="step-dot active"></div><div class="step-line"></div></div>
+              <div class="step-info"><h4 style="color:var(--orange)">En tránsito → Monterrey</h4><p>13 Abr 2025 — 04:15 hrs · Carretera 57, San Luis Potosí</p></div>
+            </div>
+            <div class="track-step">
+              <div class="step-dot-wrap"><div class="step-dot"></div><div class="step-line"></div></div>
+              <div class="step-info"><h4 style="color:var(--gray-text)">Llegada a Monterrey</h4><p>Estimado: 14 Abr 2025 — 10:00 hrs</p></div>
+            </div>
+            <div class="track-step">
+              <div class="step-dot-wrap"><div class="step-dot"></div></div>
+              <div class="step-info"><h4 style="color:var(--gray-text)">Entrega al destinatario</h4><p>Estimado: 14 Abr 2025 — 14:00 hrs</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CLIENTES ===== -->
+<section id="clientes">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-tag">Lo que dicen de nosotros</div>
+      <h2 class="section-title">Clientes que <span>confían en nosotros</span></h2>
+      <p class="section-sub">Más de 500 empresas y negocios han elegido TransMex para mover su mercancía con confianza.</p>
+    </div>
+    <div class="testimonios-grid">
+      <div class="testimonio-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>Llevamos 3 años trabajando con TransMex y nunca nos han fallado. Siempre puntuales, con excelente comunicación y cuidado de nuestra mercancía. Son nuestro aliado estratégico.</blockquote>
+        <div class="testimonio-author">
+          <div class="author-avatar">RL</div>
+          <div class="author-info">
+            <div class="name">Roberto Leal</div>
+            <div class="company">Director de Operaciones — Distribuidora Leal S.A.</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>Necesitábamos un proveedor confiable para trasladar productos refrigerados a 5 estados. TransMex nos ofreció la solución perfecta con rastreo en tiempo real. Totalmente recomendados.</blockquote>
+        <div class="testimonio-author">
+          <div class="author-avatar">MC</div>
+          <div class="author-info">
+            <div class="name">María Cortés</div>
+            <div class="company">Gerente de Logística — Alimentos del Norte</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>El equipo de TransMex nos asesoró en la optimización de nuestras rutas de distribución. Redujimos costos un 20% y mejoramos tiempos de entrega significativamente. Excelente servicio.</blockquote>
+        <div class="testimonio-author">
+          <div class="author-avatar">JV</div>
+          <div class="author-info">
+            <div class="name">Jorge Villarreal</div>
+            <div class="company">CEO — Ferretera Villarreal & Asociados</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:3rem">
+      <p class="logos-title">Algunas empresas que confían en nosotros</p>
+      <div class="logos-grid">
+        <div class="logo-client">Bio Pappel</div>
+        <div class="logo-client">Yara International</div>
+        <div class="logo-client">Agroversa</div>
+        <div class="logo-client">Jova</div>
+        <div class="logo-client">Haifa</div>
+        <div class="logo-client">Maseca</div>
+        <div class="logo-client">Jhon Deere</div>
+        <div class="logo-client">Cecso</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COBERTURA MAP ===== -->
+<section id="cobertura">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-tag">Cobertura nacional</div>
+      <h2 class="section-title" style="color:var(--white)">Llegamos a <span>toda la República</span></h2>
+      <p class="section-sub" style="color:#a8bbd4;margin:auto">Contamos con rutas activas en los 32 estados del país y más de 50 destinos principales.</p>
+    </div>
+    <div class="mapa-wrap">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14931029.36571849!2d-101.43523!3d23.88274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        title="Mapa de cobertura República Mexicana">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACTO ===== -->
+<section id="contacto">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Hablemos</div>
+      <h2 class="section-title">Contáctanos <span>hoy mismo</span></h2>
+      <p class="section-sub">¿Tienes un envío, duda o proyecto? Estamos listos para ayudarte.</p>
+    </div>
+    <div class="contacto-grid">
+      <div class="contacto-info">
+        <h3>Información de contacto</h3>
+        <div class="info-item">
+          <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="info-text">
+            <h4>Oficinas centrales</h4>
+            <p>30 de mayo no. 71 col independencia<br>Ciudad Sahagun, Hidalgo, C.P. 43994</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+          <div class="info-text">
+            <h4>Teléfono</h4>
+            <a href="tel:+5255123456789">+52 771 690 2271</a><br>
+            <a href="tel:+5255123456780">+52 771 390 9219 (Logística 24/7)</a>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div class="info-text">
+            <h4>Correo electrónico</h4>
+            <a href="mailto:operaciones@attmexs.com">operaciones@attmexs.com</a><br>
+            <a href="mailto:atencionaclientes@attmexs.com">atencionaclientes@attmexs.com</a>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
+          <div class="info-text">
+            <h4>Horario de atención</h4>
+            <p>Lunes a Viernes: 8:00 – 16:00 hrs<br>Sábados: 9:00 – 14:00 hrs</p>
+          </div>
+        </div>
+        <a href="https://wa.me/5217297563604?text=Hola%2C%20me%20interesa%20cotizar%20un%20env%C3%ADo" target="_blank" class="whatsapp-btn">
+          <i class="fa-brands fa-whatsapp" style="font-size:1.3rem"></i> Escríbenos por WhatsApp
+        </a>
+      </div>
+      <div class="contact-form">
+        <h3><i class="fa-solid fa-envelope-open-text"></i> Envíanos un mensaje</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre completo *</label>
+            <input type="text" placeholder="Tu nombre" id="cnt-nombre"/>
+          </div>
+          <div class="form-group">
+            <label>Correo electrónico *</label>
+            <input type="email" placeholder="correo@empresa.com" id="cnt-email"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Teléfono</label>
+          <input type="tel" placeholder="55 0000 0000" id="cnt-tel"/>
+        </div>
+        <div class="form-group">
+          <label>Mensaje *</label>
+          <textarea placeholder="¿En qué podemos ayudarte? Describe tu necesidad de transporte o consulta..." id="cnt-msg"></textarea>
+        </div>
+        <button class="btn-primary" onclick="enviarContacto()">
+          <i class="fa-solid fa-paper-plane"></i> Enviar mensaje
+        </button>
+        <div id="contact-result"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#inicio" class="logo-wrap">
+          <div class="logo-icon"><i class="fa-solid fa-truck-fast"></i></div>
+          <div class="logo-text">
+            <div class="brand">ATT Agencia de Transporte Terrestre</div>
+            <div class="tagline">Logística Nacional</div>
+          </div>
+        </a>
+        <p>Empresa mexicana líder en transporte terrestre de mercancías y logística integral en toda la República Mexicana desde 2009.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/share/1B6CX7N59v/" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="social-link"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#clientes">Clientes</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#servicios">Carga general</a></li>
+          <li><a href="#servicios">Carga refrigerada</a></li>
+          <li><a href="#servicios">Logística integral</a></li>
+          <li><a href="#servicios">Almacenaje</a></li>
+          <li><a href="#servicios">Rastreo GPS</a></li>
+          <li><a href="#cotizar">Solicitar cotización</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="tel:+52 771 690 2271"><i class="fa-solid fa-phone" style="width:14px;margin-right:.4rem"></i>771 690 2271</a></li>
+          <li><a href="mailto:operaciones@attmexs.com"><i class="fa-solid fa-envelope" style="width:14px;margin-right:.4rem"></i>operaciones@attmexs.com</a></li>
+          <li><a href="https://maps.app.goo.gl/CiP2mNEfM7G1apW19"><i class="fa-solid fa-location-dot" style="width:14px;margin-right:.4rem"></i>30 de mayo no. 71 col independencia CP 43994</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 ATT Agencia de Transporte Terrestre S.A. de C.V. Todos los derechos reservados.</p>
+      <p><a href="#">Aviso de privacidad</a> · <a href="#">Términos y condiciones</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/5217297563604?text=Hola%2C%20quiero%20cotizar%20un%20env%C3%ADo" target="_blank" class="float-wa" title="Escríbenos por WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script>
+  /* ===== NAVBAR SCROLL ===== */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  /* ===== ACTIVE NAV LINK ===== */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id');
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+
+  /* ===== HAMBURGER ===== */
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  /* ===== NÚMERO WHATSAPP DE LA EMPRESA — cambia solo este valor ===== */
+  const WA_NUMBER = '5217297563604'; // formato: 52 + lada + número, sin espacios ni guiones
+
+  /* ===== COTIZADOR ===== */
+  function enviarCotizacion() {
+    const nombre = document.getElementById('cot-nombre').value.trim();
+    const tel    = document.getElementById('cot-tel').value.trim();
+    const origen = document.getElementById('cot-origen').value.trim();
+    const destino= document.getElementById('cot-destino').value.trim();
+    const tipo   = document.getElementById('cot-tipo').value;
+    const peso   = document.getElementById('cot-peso').value;
+    const notas  = document.getElementById('cot-notas').value.trim();
+    const res    = document.getElementById('cotizar-result');
+
+    if (!nombre || !origen || !destino || !tipo) {
+      res.style.display = 'block';
+      res.style.background = 'rgba(220,50,50,.15)';
+      res.style.borderColor = '#dc3232';
+      res.style.color = '#ff6b6b';
+      res.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Por favor completa los campos requeridos.';
+      return;
+    }
+
+    // Construir mensaje para WhatsApp
+    const msg = [
+      '🚛 *SOLICITUD DE COTIZACIÓN — ATT*',
+      '─────────────────────────',
+      `👤 *Nombre:* ${nombre}`,
+      tel   ? `📞 *Teléfono:* ${tel}`          : null,
+      `📍 *Origen:* ${origen}`,
+      `🏁 *Destino:* ${destino}`,
+      `📦 *Tipo de mercancía:* ${tipo}`,
+      peso  ? `⚖️ *Peso aprox.:* ${peso}`       : null,
+      notas ? `📝 *Notas:* ${notas}`            : null,
+      '─────────────────────────',
+      'Por favor envíen cotización a la brevedad. ¡Gracias!'
+    ].filter(Boolean).join('\n');
+
+    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+
+    // Confirmación visual
+    res.style.display = 'block';
+    res.style.background = 'rgba(37,211,102,.12)';
+    res.style.borderColor = '#25d366';
+    res.style.color = '#1a9e4e';
+    res.innerHTML = '<i class="fa-brands fa-whatsapp"></i> ¡Abriendo WhatsApp con tu solicitud! Si no abrió automáticamente, <a href="' + url + '" target="_blank" style="color:#1a9e4e;font-weight:700;text-decoration:underline">haz clic aquí</a>.';
+  }
+
+  /* ===== RASTREO ===== */
+  function rastrearEnvio() {
+    const input = document.getElementById('guia-input').value.trim();
+    const result = document.getElementById('rastreo-result');
+    if (!input) {
+      alert('Por favor ingresa un número de guía.');
+      return;
+    }
+    document.getElementById('guia-display').textContent = input;
+    result.style.display = 'block';
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  /* ===== CONTACTO ===== */
+  function enviarContacto() {
+    const nombre = document.getElementById('cnt-nombre').value.trim();
+    const email  = document.getElementById('cnt-email').value.trim();
+    const tel    = document.getElementById('cnt-tel').value.trim();
+    const msgtxt = document.getElementById('cnt-msg').value.trim();
+    const res    = document.getElementById('contact-result');
+
+    if (!nombre || !email || !msgtxt) {
+      res.style.display = 'block';
+      res.style.background = 'rgba(220,50,50,.08)';
+      res.style.borderColor = '#dc3232';
+      res.style.color = '#dc3232';
+      res.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Por favor completa los campos obligatorios.';
+      return;
+    }
+
+    // Construir mensaje para WhatsApp
+    const waMsg = [
+      '✉️ *MENSAJE DE CONTACTO — ATT*',
+      '─────────────────────────',
+      `👤 *Nombre:* ${nombre}`,
+      `📧 *Correo:* ${email}`,
+      tel ? `📞 *Teléfono:* ${tel}` : null,
+      `💬 *Mensaje:*\n${msgtxt}`,
+      '─────────────────────────'
+    ].filter(Boolean).join('\n');
+
+    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waMsg)}`;
+    window.open(url, '_blank');
+
+    // Confirmación visual
+    res.style.display = 'block';
+    res.style.background = 'rgba(37,211,102,.1)';
+    res.style.borderColor = '#25d366';
+    res.style.color = '#1a9e4e';
+    res.innerHTML = '<i class="fa-brands fa-whatsapp"></i> ¡Abriendo WhatsApp con tu mensaje! Si no abrió automáticamente, <a href="' + url + '" target="_blank" style="color:#1a9e4e;font-weight:700;text-decoration:underline">haz clic aquí</a>.';
+
+    // Limpiar campos
+    document.getElementById('cnt-nombre').value = '';
+    document.getElementById('cnt-email').value  = '';
+    document.getElementById('cnt-tel').value    = '';
+    document.getElementById('cnt-msg').value    = '';
+  }
+
+  /* ===== SMOOTH REVEAL ON SCROLL ===== */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .testimonio-card, .mvv-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
