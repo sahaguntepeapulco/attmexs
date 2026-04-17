@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ATT | Agencia de Transporte Terrestre</title>
-  <meta name="description" content="Empresa líder en transporte terrestre de mercancías en toda la República Mexicana. Logística integral, rastreo en tiempo real y cobertura nacional."/>
+  <title>ATT Mexs | Agencia de Transporte Terrestre en México</title>
+  <meta name="description" content="ATT Mexs — Agencia de Transporte Terrestre. Operamos Soluciones, Entregamos Resultados. Transporte de mercancías en toda la República Mexicana."/>
   <meta name="keywords" content="transporte mercancías México, logística terrestre, envíos república mexicana, flete terrestre, traslado de carga"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,8 +17,8 @@
       --blue-mid:     #0d2244;
       --blue-main:    #1a3a6b;
       --blue-bright:  #1e5fc2;
-      --orange:       #f26b1d;
-      --orange-light: #ff8c42;
+      --orange:       #c9a227;
+      --orange-light: #e0b83a;
       --white:        #ffffff;
       --gray-light:   #f4f6fa;
       --gray-mid:     #e0e6ef;
@@ -58,8 +58,9 @@
       font-size: 1.5rem; color: var(--white);
     }
     .logo-text { line-height: 1; }
-    .logo-text .brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.5rem; color: var(--white); letter-spacing: .5px; }
-    .logo-text .tagline { font-size: .65rem; color: var(--orange); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; }
+    .logo-text .brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.1rem; color: var(--white); letter-spacing: .5px; text-transform: uppercase; }
+    .logo-text .subbrand { font-size: .7rem; color: #a8bbd4; font-weight: 500; letter-spacing: .5px; text-transform: uppercase; display: block; margin-top: 1px; }
+    .logo-text .slogan { font-size: .6rem; color: var(--orange); font-weight: 600; letter-spacing: .5px; font-style: italic; display: block; margin-top: 2px; }
     .nav-links { display: flex; gap: 2rem; }
     .nav-links a { color: var(--gray-mid); font-weight: 500; font-size: .95rem; letter-spacing: .5px; transition: color .2s; position: relative; }
     .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--orange); transition: width .25s; }
@@ -461,8 +462,9 @@
     <a href="#inicio" class="logo-wrap">
       <div class="logo-icon"><i class="fa-solid fa-truck-fast"></i></div>
       <div class="logo-text">
-        <div class="brand">ATT</div>
-        <div class="tagline">Agencia de Transporte Terrestre</div>
+        <div class="brand">ATT Mexs</div>
+        <span class="subbrand">Agencia de Transporte Terrestre</span>
+        <span class="slogan">"Operamos Soluciones, Entregamos Resultados"</span>
       </div>
     </a>
     <ul class="nav-links">
@@ -590,16 +592,6 @@
         </div>
       </div>
       <div class="service-card">
-        <div class="service-icon"><i class="fa-solid fa-snowflake"></i></div>
-        <h3>Transporte refrigerado</h3>
-        <p>Unidades equipadas con sistema de refrigeración para el traslado de alimentos, fármacos y productos perecederos.</p>
-        <div class="service-tags">
-          <span class="service-tag">Cadena de frío</span>
-          <span class="service-tag">Farmacéutico</span>
-          <span class="service-tag">Alimentos</span>
-        </div>
-      </div>
-      <div class="service-card">
         <div class="service-icon"><i class="fa-solid fa-diagram-project"></i></div>
         <h3>Logística integral</h3>
         <p>Planificación de rutas, coordinación de tiempos, documentación y gestión completa del proceso logístico de principio a fin.</p>
@@ -620,23 +612,16 @@
         </div>
       </div>
       <div class="service-card">
-        <div class="service-icon"><i class="fa-solid fa-warehouse"></i></div>
-        <h3>Almacenaje y bodegaje</h3>
-        <p>Espacios seguros para el resguardo temporal o prolongado de tu mercancía con control de inventario y acceso controlado.</p>
-        <div class="service-tags">
-          <span class="service-tag">Inventario</span>
-          <span class="service-tag">Seguridad</span>
-          <span class="service-tag">CDMX y más</span>
-        </div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><i class="fa-solid fa-box-open"></i></div>
-        <h3>Embalaje y estiba</h3>
-        <p>Servicio profesional de embalaje, palletizado y estiba para garantizar que tu mercancía llegue en perfectas condiciones.</p>
-        <div class="service-tags">
-          <span class="service-tag">Embalaje</span>
-          <span class="service-tag">Paletizado</span>
-          <span class="service-tag">Estiba</span>
+        <div class="service-icon"><i class="fa-solid fa-trailer"></i></div>
+        <h3>Tipo de plataformas</h3>
+        <p>Contamos con una amplia flota de unidades para adaptarnos a cualquier tipo de carga y necesidad logística en toda la República.</p>
+        <div class="service-tags" style="flex-direction:column;gap:.5rem;margin-top:.75rem">
+          <div style="display:flex;align-items:flex-start;gap:.5rem;font-size:.85rem;color:var(--gray-text)"><i class="fa-solid fa-check" style="color:var(--orange);margin-top:3px;flex-shrink:0"></i><span><strong>Cajas secas</strong> de 40, 48 y 53 pies</span></div>
+          <div style="display:flex;align-items:flex-start;gap:.5rem;font-size:.85rem;color:var(--gray-text)"><i class="fa-solid fa-check" style="color:var(--orange);margin-top:3px;flex-shrink:0"></i><span><strong>Jaulas</strong> bajo y alto volumen y peso</span></div>
+          <div style="display:flex;align-items:flex-start;gap:.5rem;font-size:.85rem;color:var(--gray-text)"><i class="fa-solid fa-check" style="color:var(--orange);margin-top:3px;flex-shrink:0"></i><span><strong>Plataformas</strong> de 40, 42 y 48 pies</span></div>
+          <div style="display:flex;align-items:flex-start;gap:.5rem;font-size:.85rem;color:var(--gray-text)"><i class="fa-solid fa-check" style="color:var(--orange);margin-top:3px;flex-shrink:0"></i><span><strong>Tortón</strong> caja seca y redilas</span></div>
+          <div style="display:flex;align-items:flex-start;gap:.5rem;font-size:.85rem;color:var(--gray-text)"><i class="fa-solid fa-check" style="color:var(--orange);margin-top:3px;flex-shrink:0"></i><span><strong>Tolvas neumáticas</strong></span></div>
+          <div style="display:flex;align-items:flex-start;gap:.5rem;font-size:.85rem;color:var(--gray-text)"><i class="fa-solid fa-check" style="color:var(--orange);margin-top:3px;flex-shrink:0"></i><span><strong>Camioneta</strong> de 3 y media toneladas</span></div>
         </div>
       </div>
     </div>
@@ -816,15 +801,15 @@
     <div style="margin-top:3rem">
       <p class="logos-title">Algunas empresas que confían en nosotros</p>
       <div class="logos-grid">
-        <div class="logo-client">Bio Pappel</div>
-        <div class="logo-client">Yara International</div>
-        <div class="logo-client">Agroversa</div>
-        <div class="logo-client">Jova</div>
-        <div class="logo-client">Haifa</div>
-        <div class="logo-client">Maseca</div>
-        <div class="logo-client">Jhon Deere</div>
-        <div class="logo-client">Cecso</div>
-      </div>
+      <a href="https://biopappel.com/" class="logo-client">Bio Pappel</a>
+      <a href="https://www.yara.com.mx/" class="logo-client">Yara International</a>
+      <a href="https://www.grupoagroversa.mx/" class="logo-client">Agroversa</a>
+      <a href="https://jova.com.mx/" class="logo-client">Jova</a>
+      <a href="https://www.haifa-group.com/es" class="logo-client">Haifa</a>
+      <a href="https://www.maseca.com.mx/home/" class="logo-client">Maseca</a>
+      <a href="https://www.deere.com.mx/es/" class="logo-client">John Deere</a>
+      <a href="https://www.cecso.mx/" class="logo-client">Cecso</a>
+    </div>
     </div>
   </div>
 </section>
@@ -888,7 +873,7 @@
             <p>Lunes a Viernes: 8:00 – 16:00 hrs<br>Sábados: 9:00 – 14:00 hrs</p>
           </div>
         </div>
-        <a href="https://wa.me/5217297563604?text=Hola%2C%20me%20interesa%20cotizar%20un%20env%C3%ADo" target="_blank" class="whatsapp-btn">
+        <a href="https://wa.me/5217713909219?text=Hola%2C%20me%20interesa%20cotizar%20un%20env%C3%ADo" target="_blank" class="whatsapp-btn">
           <i class="fa-brands fa-whatsapp" style="font-size:1.3rem"></i> Escríbenos por WhatsApp
         </a>
       </div>
@@ -929,8 +914,8 @@
         <a href="#inicio" class="logo-wrap">
           <div class="logo-icon"><i class="fa-solid fa-truck-fast"></i></div>
           <div class="logo-text">
-            <div class="brand">ATT Agencia de Transporte Terrestre</div>
-            <div class="tagline">Logística Nacional</div>
+            <div class="brand">ATT Mexs</div>
+            <span class="subbrand">Agencia de Transporte Terrestre</span>
           </div>
         </a>
         <p>Empresa mexicana líder en transporte terrestre de mercancías y logística integral en toda la República Mexicana desde 2009.</p>
@@ -955,10 +940,9 @@
         <h4>Servicios</h4>
         <ul>
           <li><a href="#servicios">Carga general</a></li>
-          <li><a href="#servicios">Carga refrigerada</a></li>
           <li><a href="#servicios">Logística integral</a></li>
-          <li><a href="#servicios">Almacenaje</a></li>
           <li><a href="#servicios">Rastreo GPS</a></li>
+          <li><a href="#servicios">Tipo de plataformas</a></li>
           <li><a href="#cotizar">Solicitar cotización</a></li>
         </ul>
       </div>
@@ -972,14 +956,14 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 ATT Agencia de Transporte Terrestre S.A. de C.V. Todos los derechos reservados.</p>
+      <p>© 2025 ATT Mexs — Agencia de Transporte Terrestre S.A. de C.V. Todos los derechos reservados.</p>
       <p><a href="#">Aviso de privacidad</a> · <a href="#">Términos y condiciones</a></p>
     </div>
   </div>
 </footer>
 
 <!-- Floating WhatsApp -->
-<a href="https://wa.me/5217297563604?text=Hola%2C%20quiero%20cotizar%20un%20env%C3%ADo" target="_blank" class="float-wa" title="Escríbenos por WhatsApp">
+<a href="https://wa.me/5217713909219?text=Hola%2C%20quiero%20cotizar%20un%20env%C3%ADo" target="_blank" class="float-wa" title="Escríbenos por WhatsApp">
   <i class="fa-brands fa-whatsapp"></i>
 </a>
 
@@ -1018,7 +1002,7 @@
   });
 
   /* ===== NÚMERO WHATSAPP DE LA EMPRESA — cambia solo este valor ===== */
-  const WA_NUMBER = '5217297563604'; // formato: 52 + lada + número, sin espacios ni guiones
+  const WA_NUMBER = '5217713909219'; // formato: 52 + lada + número, sin espacios ni guiones
 
   /* ===== COTIZADOR ===== */
   function enviarCotizacion() {
@@ -1042,7 +1026,7 @@
 
     // Construir mensaje para WhatsApp
     const msg = [
-      '🚛 *SOLICITUD DE COTIZACIÓN — ATT*',
+      '🚛 *SOLICITUD DE COTIZACIÓN — ATT Mexs*',
       '─────────────────────────',
       `👤 *Nombre:* ${nombre}`,
       tel   ? `📞 *Teléfono:* ${tel}`          : null,
@@ -1098,7 +1082,7 @@
 
     // Construir mensaje para WhatsApp
     const waMsg = [
-      '✉️ *MENSAJE DE CONTACTO — ATT*',
+      '✉️ *MENSAJE DE CONTACTO — ATT Mexs*',
       '─────────────────────────',
       `👤 *Nombre:* ${nombre}`,
       `📧 *Correo:* ${email}`,
